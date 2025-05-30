@@ -1,30 +1,15 @@
 # YouTube to MP3/MP4 Converter
 
 ## Introduction
-This is a simple Node.js web application that converts YouTube videos to MP3 or MP4 with selectable quality levels.
-
-## Prerequisites
-- Node.js (v14 or higher recommended)
-- npm (Node package manager)
-
-## Installation
-1. Clone or extract this repository.
-2. Navigate to the project directory.
-3. Install the dependencies:
-   ```
-   npm install
-   ```
+This is a simple Node.js web application developed by Zenyx! It allows you to convert YouTube videos to MP3 or MP4 formats with selectable quality levels. The app features a modern user interface and handles common errors gracefully.
 
 ## Usage
-1. Start the server:
-   ```
-   node server.js
-   ```
-2. Open your browser and go to http://localhost:3000
-3. Enter a YouTube URL, select the format and quality (if MP4), and click "Convert".
-4. After conversion, click the download link to get your file.
+1. Enter a YouTube URL in the provided input box.
+2. Select the desired format (MP3 or MP4) and the quality (if MP4).
+3. Click the **"Convert"** button.
+4. After conversion, a download link will appear for you to save the file.
 
-## Troubleshooting
-- **Invalid URL**: Make sure you’re entering a valid YouTube video URL.
-- **Network/SSL issues**: Check your internet connection or SSL certificates.
-- **Conversion errors**: Try again with a different video.
+## License
+**all rights are reserved**. You may not use, copy, modify, or distribute any part of this project without explicit permission from Zenyx!.
+
+---
