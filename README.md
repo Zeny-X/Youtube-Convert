@@ -10,6 +10,6 @@ This is a simple Node.js web application developed by Zenyx! It allows you to co
 4. After conversion, a download link will appear for you to save the file.
 
 ## License
-**all rights are reserved**. You may not use, copy, modify, or distribute any part of this project without explicit permission from Zenyx!.
+**All rights are reserved**. You may not use, copy, modify, or distribute any part of this project without explicit permission from Zenyx!.
 
 ---
