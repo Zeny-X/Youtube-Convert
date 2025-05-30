@@ -28,6 +28,3 @@ This is a simple Node.js web application that converts YouTube videos to MP3 or 
 - **Invalid URL**: Make sure you’re entering a valid YouTube video URL.
 - **Network/SSL issues**: Check your internet connection or SSL certificates.
 - **Conversion errors**: Try again with a different video.
-
-## License
-This project is licensed under the MIT License.
