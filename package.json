@@ -1,7 +1,7 @@
 {
-  "name": "youtube-to-mp3-mp4",
-  "version": "1.0.0",
-  "description": "A simple YouTube to MP3/MP4 converter web application",
+  "name": "youtube-to-mp3-mp4-yt-dlp",
+  "version": "1.0.1",
+  "description": "A simple YouTube to MP3/MP4 converter web application using yt-dlp.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -10,8 +10,7 @@
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "body-parser": "^1.20.2",
     "express": "^4.18.2",
-    "fluent-ffmpeg": "^2.1.2",
-    "ytdl-core": "^4.11.5"
-},
+    "fluent-ffmpeg": "^2.1.2"
+  },
   "license": "MIT"
 }
