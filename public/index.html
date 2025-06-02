@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -74,7 +74,9 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube Icon">
       YouTube Converter
     </h1>
-    <form id="convertForm">
+    <form id="convertForm" method="POST" action="/convert" target="_blank">
+      <input type="hidden" name="url" id="hiddenUrlInput" />
+      <input type="hidden" name="format" id="hiddenFormatInput" />
       <input type="text" id="urlInput" placeholder="Enter YouTube URL" required />
       <select id="formatSelect">
         <option value="mp3">MP3</option>
@@ -85,25 +87,12 @@
   </div>
 
   <script>
-    document.getElementById('convertForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
+    document.getElementById('convertForm').addEventListener('submit', (e) => {
       const url = document.getElementById('urlInput').value;
       const format = document.getElementById('formatSelect').value;
 
-      const response = await fetch('/convert', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ url, format, quality: 'highest' })
-      });
-
-      const data = await response.json();
-      if (data.downloadUrl) {
-        window.location.href = data.downloadUrl;
-      } else {
-        alert(data.error || 'Conversion failed!');
-      }
+      document.getElementById('hiddenUrlInput').value = url;
+      document.getElementById('hiddenFormatInput').value = format;
     });
   </script>
 </body>
