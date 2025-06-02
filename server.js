@@ -20,20 +20,29 @@ app.post('/convert', (req, res) => {
   }
 
   const outputFileName = 'output_' + Date.now() + '.' + format;
+  
+  // Common yt-dlp options
+  const commonOptions = '--sleep-requests 1 --max-sleep-interval 5 --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"';
+
   const command = format === 'mp3'
-    ? 'yt-dlp -x --audio-format mp3 --audio-quality 0 -o "' + outputFileName + '" "' + url + '"'
-    : 'yt-dlp -f bestvideo+bestaudio -o "' + outputFileName + '" "' + url + '"';
+    ? `yt-dlp ${commonOptions} -x --audio-format mp3 --audio-quality 0 -o "${outputFileName}" "${url}"`
+    : `yt-dlp ${commonOptions} -f bestvideo+bestaudio -o "${outputFileName}" "${url}"`;
+
+  console.log(`Running command: ${command}`);
 
   exec(command, function (error, stdout, stderr) {
     if (error) {
-      console.error('Error: ' + error.message);
-      return res.status(500).send('Failed to download the video.');
+      console.error('Error:', error.message);
+      console.error('stderr:', stderr);
+      return res.status(500).send('Failed to download the video. It might be blocked or restricted.');
     }
+
+    console.log('yt-dlp output:', stdout);
 
     const filePath = path.join(__dirname, outputFileName);
     res.download(filePath, function (err) {
       if (err) {
-        console.error('Error sending file: ' + err.message);
+        console.error('Error sending file:', err.message);
       }
       fs.unlink(filePath, function () {});
     });
